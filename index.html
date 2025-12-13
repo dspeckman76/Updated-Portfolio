@@ -3,11 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Project</title>
+    <title>Updated Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/55ae6491e6.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
-    <script type="text/javascript"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "user_x3qbT2wZd8xIkbEf",
+      });
+   })();
 </script>
 
 </head>
@@ -78,6 +86,79 @@
         <a href="#projects" class="scroll">
             <div class="scroll__icon click"></div>
         </a>
+        <!--    Begin Modal    -->
+        <div class="modal">
+            <div class="modal__half modal__about">
+                <h3 class="modal__title modal__title--about">Here's a bit about me</h3>
+                <h4 class="modal__sub-title modal__sub-title--about">Frontend Software Engineer.</h4>
+                <p class="modal__para">
+                    I'm a <b class="purple">frontend software engineer</b> who creates fast, responsive, and visually 
+                    engaging interfaces. I focus on clean design, intuitive interactions, and 
+                    reliable engineering to turn ideas into great <b class="purple">user experiences.</b>
+                    <br>
+                    <br>
+                    I'm driven by curiosity and <b class="purple">excellence</b> — always exploring new frameworks, 
+                    patterns, and tools to elevate my craft. I enjoy tackling <b class="purple">complex problems</b> and <b class="purple">simplifying</b> them.
+                    <br>
+                    <br>
+                    If you're looking for someone who can blend strong fundamentals with craftsmanship, <b class="purple">I'm ready to help</b> 
+                    build something outstanding!
+                </p>
+                <div class="modal__languages">
+                    <figure class="modal__language">
+                      <img class="modal__language--img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/240px-HTML5_Badge.svg.png" alt="">
+                      <span class="language__name">HTML</span>
+                    </figure>
+                    <figure class="modal__language">
+                      <img class="modal__language--img" src="https://cdn.iconscout.com/icon/free/png-256/css-131-722685.png" alt="">
+                      <span class="language__name">CSS</span>
+                    </figure>
+                    <figure class="modal__language">
+                      <img class="modal__language--img" src="https://cdn.iconscout.com/icon/free/png-256/javascript-1-225993.png" alt="">
+                      <span class="language__name">JavaScript</span>
+                    </figure>
+                    <figure class="modal__language">
+                      <img class="modal__language--img" src="https://cdn.iconscout.com/icon/free/png-256/react-3-1175109.png" alt="">
+                      <span class="language__name">React</span>
+                    </figure>
+                </div>
+            </div>
+            <div class="modal__half modal__contact">
+                <h3 class="modal__title modal__title--contact">
+                    Let's have a chat!
+                </h3>
+                <h4 class="modal__sub-title modal__sub-title--contact">
+                    I'm currently open to new opportunities.
+                </h4>
+                <!--Begin Contact Form-->
+                <form id="contact__form" onsubmit="contact()">
+                    <div class="form__item">
+                        <label class="form__item--label">Name</label>
+                        <input class="input" name="user_name" type="text" required></input>
+                    </div>
+                    <div class="form__item">
+                        <label class="form__item--label">Email</label>
+                        <input class="input" name="user_email" type="email" required></input>
+                    </div>
+                    <div class="form__item">
+                        <label class="form__item--label">Message</label>
+                        <textarea class="input" name="message" type="text" required></textarea>
+                    </div>
+                    <button id="contact__submit" class="form__submit">
+                        <b>Send it my way</b>
+                    </button>
+                </form>
+                <!--End Contact Form-->
+                <div class="modal__overlay modal__overlay--loading">
+                    <i class="fas fa-spinner"></i>
+                </div>
+                <div class="modal__overlay modal__overlay--success">
+                    Thanks for the message. Looking forward to speaking to you soon!
+                </div>
+            </div>
+            <i class="fas fa-times modal__exit click"></i>
+        </div>
+        <!--End Modal-->
     </section>  <!--    close landing-page  -->
 
     <section id="projects">
