@@ -115,6 +115,13 @@ input:focus, textarea:focus {
     line-height: 1;
 }
 
+.title__name {
+    font-size: 120px;
+    margin-bottom: 12px;
+    text-align: left;
+    line-height: 1;
+}
+
 /* Link Animation */
 
 .link__hover-effect {
@@ -135,8 +142,7 @@ input:focus, textarea:focus {
     background-color: #fff;
 }
 
-
-.link__hover-effect--black:after {
+.link__hover-effect--purple:after {
     background-color: #6030b1;
 }
 .link__hover-effect:hover:after {
@@ -191,6 +197,21 @@ nav,
     background-color: #fff;
     color: #242424;
 }
+.dark-theme footer {
+    background-color: #fff;;
+}
+.dark-theme .footer__logo--img {
+    filter: none;
+    width: 100px;
+}
+.dark-theme .footer__social--link,
+.footer__copyright {
+    color: #242424;
+}
+.dark-theme .link__hover-effect--white:after {
+    background-color: #6030b1;
+}
+
 
 
 
