@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
 
+
 /* RESET PARAMETERS */
 
 * {
@@ -43,6 +44,7 @@ button {
 
 section {
     background-color: rgb(245, 245, 245);
+    transition: all 300ms ease;
 }
 
 input, textarea {
@@ -131,11 +133,59 @@ input:focus, textarea:focus {
 
 
 .link__hover-effect--black:after {
-    background-color: #242424;
+    background-color: #6030b1;
 }
 .link__hover-effect:hover:after {
     left: 0;
     width: 100%;
+}
+
+
+/* Hide and Reveal when Modal opens/closes */
+
+nav,
+.scroll,
+.header {
+    opacity: 1;
+    visibility: visible;
+    transition: all 600ms 800ms;
+}
+
+.modal--open nav,
+.modal--open .scroll,
+.modal--open .header {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 400ms;
+}
+
+
+/* DARK-THEME CONTRAST */
+
+.dark-theme .title,
+.dark-theme .section__title,
+.dark-theme .section__sub-title,
+.dark-theme .nav__link--anchor,
+.dark-theme .fa-adjust,
+.dark-theme .header__para
+{
+  color: white;
+}
+.dark-theme section {
+  background-color: #242424;
+}
+.dark-theme #personal-logo {
+    filter: invert(100%);
+}
+.dark-theme .scroll__icon {
+    border-color: #fff;
+}
+.dark-theme .scroll__icon:after {
+    background-color: #fff;
+}
+.dark-theme .mail__btn {
+    background-color: #fff;
+    color: #242424;
 }
 
 
@@ -185,22 +235,24 @@ input:focus, textarea:focus {
 }
 
 .mail__btn {
-    width: 70px;
-    height: 70px;
-    font-size: 32px;
+    width: 55px;
+    height: 55px;
+    font-size: 24px;
     border-radius: 50%;
-    border: none;
+    border: 2px solid #6030b1;
     background-color: #242424;
     color: #fff;
-    position: absolute;
+    position: fixed;
     bottom: 32px;
     right: 40px;
-}
+    z-index: 100;
+  }
 
 .scroll {
-    position: absolute;
+    position: fixed;
     bottom: 20px;
     left: 50%;
+    z-index: 100;
     transform: translateX(-50%);
 }
 
@@ -288,23 +340,38 @@ nav {
     width: 90%;
     max-width: 1100px;
     height: 700px;
-    box-shadow: 0 20px 80px rgb(0, 0, 0, 0.55);
     border-radius: 20px;
     overflow: hidden;
     display: flex;
+    visibility: hidden;
+    z-index: -1;
+    transition: visibility 1s, z-index 1s, box-shadow 0.5s ease;
+}
+
+.modal--open .modal{
+    z-index: 60;
+    box-shadow: 0 20px 80px 0 rgb(0, 0, 0, 0.55);
+    visibility: visible;
 }
 
 .modal__half {
     width: 50%;
     padding: 40px 72px;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     position: relative;
+    transition: all 300ms ease-in;
 }
-
+  
+.modal--open .modal__about,
+.modal--open .modal__contact {
+    transform: translateX(0%);
+}
+  
 .modal__about {
     background-color: rgb(245, 245, 245);
-    display: flex;
+    transform: translateX(-110%);
 }
 
 .modal__languages {
@@ -343,6 +410,7 @@ nav {
 }
 
 .modal__contact {
+    transform: translateX(110%);
     background-color: #242424;
     color: #fff;
 }
@@ -352,11 +420,12 @@ nav {
 }
 
 .modal__sub-title {
-    margin: 12px 0 24px 0;
-    font-size: 14px;
+    margin: 12px 0 12px 0;
+    font-size: 20px;
 }
 
 .modal__para {
+    margin-top: 12px;
     margin-bottom: 12px;
     line-height: 1.75;
 }
@@ -391,24 +460,29 @@ nav {
     left: 0;
     width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;justify-content: center;
+    display: none;
+    align-items: center;
+    justify-content: center;
     z-index: -1;
-}
+  }
 
 .modal__overlay--loading {
     background-color: #6030b1;
     font-size: 80px;
-    z-index: -1;
 }
 
 .modal__overlay--success {
-    background-color: #ff6f00;
+    background-color: #6030b1;
     font-size: 40px;
     font-weight: 700;
     text-align: center;
     padding: 28px;
 }
+
+.modal__overlay--visible {
+    z-index: 1;
+    display: flex;
+  }
 
 .fa-spinner {
     animation: spinner 750ms infinite linear;
@@ -549,7 +623,7 @@ footer {
     margin: 28px 0;
 }
   
-  .footer__social--link,
-  .footer__copyright {
+.footer__social--link,
+.footer__copyright {
     color: white;
 }
